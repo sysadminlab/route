@@ -1,9 +1,12 @@
 /ip ipsec profile
 add dh-group=modp2048 enc-algorithm=3des hash-algorithm=sha256 name=to100_2
+
 /ip ipsec proposal
 add auth-algorithms=sha256 enc-algorithms=3des name=to100_2 pfs-group=modp2048
+
 /ip ipsec identity
 add peer=toCisco
+
 /ip ipsec policy
 add dst-address=192.168.2.0/24 peer=toCisco proposal=to100_2 src-address=192.168.1.0/24 tunnel=yes
 /ip ipsec peer
