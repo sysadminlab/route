@@ -11,7 +11,7 @@ add dh-group=modp2048 enc-algorithm=3des hash-algorithm=sha256 name=prof_3des_sh
 add address=10.10.0.2/32 name=toCisco_10 profile=prof_3des_sha256
 
 /ip ipsec identity
-add peer=toCisco_10
+add peer=toCisco_10 secret=ciscomtk
 
 /ip ipsec proposal
 add auth-algorithms=sha256 enc-algorithms=3des name=prop_3des_sha265_2048 pfs-group=modp2048
