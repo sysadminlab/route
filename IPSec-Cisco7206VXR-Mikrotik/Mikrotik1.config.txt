@@ -1,7 +1,7 @@
 /ip address
 add address=10.10.0.1/30 comment=Provider1 interface=ether1 network=10.10.0.0
 add address=10.20.0.1/30 comment=Provider2 interface=ether2 network=10.20.0.0
-add address=10.30.0.1/30 comment=Provider3 interface=ether2 network=10.30.0.0
+add address=10.30.0.1/30 comment=Provider3 interface=ether3 network=10.30.0.0
 add address=192.168.1.1/24 comment=Lan1 interface=ether4 network=192.168.1.0
 
 /ip ipsec profile
