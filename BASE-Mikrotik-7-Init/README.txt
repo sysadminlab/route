@@ -16,6 +16,14 @@ interface/list/member/add list=WAN interface=ether1
 interface/list/member/add list=WAN interface=ether2
 interface/list/member/add list=WAN interface=ether3
 
+/ip pool add name=lan-pool ranges=192.168.0.10-192.168.0.100
+/ip dhcp-server add address-pool=lan-pool interface=ether2 name=dhcp-lan
+
+/ip dhcp-server network add address=192.168.0.0/24 dns-server=192.168.0.1 gateway=192.168.0.1 netmask=24
+/ip dns set allow-remote-requests=yes servers=8.8.8.8
+
+/ip firewall nat add action=masquerade chain=srcnat src-address=192.168.0.0/24
+
 ip firewall/address-list/add address=10.10.0.2 list=IPLIST_BRANCH
 ip firewall/address-list/add address=10.20.0.2 list=IPLIST_BRANCH
 ip firewall/address-list/add address=10.30.0.2 list=IPLIST_BRANCH
